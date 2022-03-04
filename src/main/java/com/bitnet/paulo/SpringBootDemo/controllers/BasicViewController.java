@@ -7,13 +7,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
 
 @Controller
 @RequestMapping(path = "home")
-public class BasicViewController {
+public class BasicViewController implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     public enum PagesReference {
         HOME("index");
