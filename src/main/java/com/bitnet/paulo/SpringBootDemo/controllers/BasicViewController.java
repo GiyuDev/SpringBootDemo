@@ -22,7 +22,7 @@ public class BasicViewController {
         );
     }
 
-    @GetMapping(path = {"post", ""})
+    @GetMapping
     public String hello(Model model) {
         model.addAttribute("posts", getAllBlogPost());
         return "index";
