@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -13,6 +14,26 @@ import java.util.List;
 @Controller
 @RequestMapping(path = "home")
 public class BasicViewController {
+
+    public enum PagesReference {
+        HOME("index");
+
+        public final String reference;
+        PagesReference(String reference) {
+            this.reference = reference;
+        }
+
+        public String getReference() {
+            return this.reference;
+        }
+
+        public static String getReferenceByEnum(PagesReference pagesReference) {
+            if (pagesReference.equals(PagesReference.HOME)) {
+                return PagesReference.HOME.getReference();
+            }
+            return "";
+        }
+    }
 
     public List<BlogPost> getAllBlogPost() {
         return List.of(
@@ -23,8 +44,15 @@ public class BasicViewController {
     }
 
     @GetMapping
-    public String hello(Model model) {
+    public String show(Model model) {
         model.addAttribute("posts", getAllBlogPost());
         return "index";
+    }
+
+    @GetMapping(path = "post")
+    public ModelAndView post() {
+        ModelAndView modelAndView = new ModelAndView(PagesReference.getReferenceByEnum(PagesReference.HOME));
+        modelAndView.addObject("posts", getAllBlogPost());
+        return modelAndView;
     }
 }
