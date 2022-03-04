@@ -40,42 +40,17 @@
             <hr class="my-4">
             <div class="container">
                 <div class="row">
-                    <div class="card-group">
-                        <div class="col-3">
-                            <div class="card text-white bg-dark" style="width: 18rem;">
-                                <img th:src="@{/img/a.jpg}" src="../static/img/a.jpg" class="card-img-top" alt="...">
-                                 <div class="card-body">
-                                <h5 class="card-title">Post de prueba</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Post de prueba a</h6>
-                                    <p class="card-text">I hate niggas i hate niggas i hate niggas i hate niggas.</p>
-                                    <a href="#" class="btn btn-primary">Inicio</a>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">AAAA</small>
-                                </div>
+                    <div th:each="post : ${posts}" class="col-3">
+                        <div class="card text-white bg-dark" style="width: 18rem;">
+                            <img th:src="${post.img_url}" src="../static/img/a.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                                <h5 th:text="${post.title}" class="card-title"/>
+                                <p th:text="${post.text}" class="card-text"/>
+                                <a href="#" class="btn btn-primary">Inicio</a>
                             </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="card text-white bg-dark" style="width: 18rem;">
-                                <img th:src="@{/img/a.jpg}" src="../static/img/a.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                <h5 class="card-title">Post de prueba 2</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Post de prueba 2 a</h5>
-                                    <p class="card-text">God is good, God is great.</p>
-                                    <a href="#" class="btn btn-primary">Inicio</a>
-                                </div>
-                            </div>           
-                        </div>
-                        <div class="col-3">
-                            <div class="card text-white bg-dark" style="width: 18rem;">
-                                <img th:src="@{/img/a.jpg}" src="../static/img/a.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                <h5 class="card-title">Post de prueba 3</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Post de prueba 3 a</h5>
-                                    <p class="card-text">Now suck the cock cock cock cock.</p>
-                                    <a href="#" class="btn btn-primary">Inicio</a>
-                                </div>
-                            </div>           
+                            <div class="card-footer">
+                                <small class="text-muted">AAAA</small>
+                            </div>
                         </div>
                     </div>
                 </div>
