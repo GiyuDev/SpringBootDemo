@@ -5,12 +5,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping(path = "home")
@@ -19,7 +21,8 @@ public class BasicViewController implements Serializable {
     private static final long serialVersionUID = 1L;
 
     public enum PagesReference {
-        HOME("index");
+        HOME("index"),
+        POST("post");
 
         public final String reference;
         PagesReference(String reference) {
@@ -31,10 +34,14 @@ public class BasicViewController implements Serializable {
         }
 
         public static String getReferenceByEnum(PagesReference pagesReference) {
-            if (pagesReference.equals(PagesReference.HOME)) {
-                return PagesReference.HOME.getReference();
+            switch (pagesReference) {
+                case HOME:
+                    return HOME.getReference();
+                case POST:
+                    return POST.getReference();
+                default:
+                    return "";
             }
-            return "";
         }
     }
 
@@ -52,10 +59,21 @@ public class BasicViewController implements Serializable {
         return "index";
     }
 
-    @GetMapping(path = "post")
-    public ModelAndView post() {
+    @GetMapping(path = "posts")
+    public ModelAndView posts() {
         ModelAndView modelAndView = new ModelAndView(PagesReference.getReferenceByEnum(PagesReference.HOME));
         modelAndView.addObject("posts", getAllBlogPost());
+        return modelAndView;
+    }
+
+    @GetMapping(path = {"/post"})
+    public ModelAndView getIndividualPost(@RequestParam(defaultValue = "1", name = "id", required = false) int id) {
+        ModelAndView modelAndView = new ModelAndView(PagesReference.getReferenceByEnum(PagesReference.POST));
+
+        Optional<BlogPost> post = Optional.of(this.getAllBlogPost().stream()
+                .filter(p -> p.getId() == id).findFirst().get());
+
+        modelAndView.addObject("post", post.get());
         return modelAndView;
     }
 }
