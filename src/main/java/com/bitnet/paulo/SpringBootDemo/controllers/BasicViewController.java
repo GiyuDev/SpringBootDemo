@@ -18,7 +18,7 @@ public class BasicViewController {
         return List.of(
                 new BlogPost(1, "Post prueba", "Este es un post de prueba insertado desde un modelo", "http://localhost:8081/img/a.jpg", LocalDate.of(2022, Month.MARCH, 3)),
                 new BlogPost(2, "Post prueba 2", "Este es un post de prueba insertado desde un modelo 2", "http://localhost:8081/img/a.jpg", LocalDate.of(2022, Month.MARCH, 3)),
-                new BlogPost(2, "Post prueba 3", "Este es un post de prueba insertado desde un modelo 3", "http://localhost:8081/img/a.jpg", LocalDate.of(2022, Month.MARCH, 3))
+                new BlogPost(3, "Post prueba 3", "Este es un post de prueba insertado desde un modelo 3", "http://localhost:8081/img/a.jpg", LocalDate.of(2022, Month.MARCH, 3))
         );
     }
 

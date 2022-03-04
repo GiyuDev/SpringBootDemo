@@ -20,7 +20,7 @@
         <div class="navbar-nav">
             <a class="nav-link active" aria-current="page" th:href="@{/}" href="#">Inicio</a>
             <a class="nav-link" href="#">Galeria</a>
-            <a class="nav-link" href="#posts">Post</a>
+            <a class="nav-link" href="#posts">Blogposts</a>
         </div>
         </div>
         </div>
@@ -47,6 +47,7 @@
                             <img th:src="${post.img_url}" src="../static/img/a.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                                 <h5 th:text="${post.title}" class="card-title"/>
+                                <h6 th:text="${post.id}" class="card-subtitle mb-2 text-muted"/>
                                 <p th:text="${post.text}" class="card-text"/>
                                 <a href="#" class="btn btn-primary">Inicio</a>
                             </div>
