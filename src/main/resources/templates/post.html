@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" href="../static/css/bootstrap.css">
+    <script th:src="@{/js/jquery.js}" type="text/javascript" src="../static/js/jquery.js"></script>
+    <script th:src="@{/js/bootstrap.js}" type="text/javascript" src="../static/js/bootstrap.js"></script>
+
+    <link rel="icon" href="http://localhost:8081/img/icon.png">
+    <title>Spring boot demo</title>
+</head>
+<body>
+	<div id="body_post">
+    	<div class="p-5 mb-4 bg-light rounded-3">
+      	<div class="container-fluid py-5">
+       	 	<h1 th:text="${post.title}" class="display-5 fw-bold"/>
+       	 	<h3 th:text="${post.id}" class="text-muted" />
+       	 	<img th:src="${post.img_url}"/>
+        	<p th:text="${post.text}" class="col-md-8 fs-4"/>
+        	<hr class="my-4">
+        	<a th:href="@{/home}" href="#" class="btn btn-primary">Inicio</a>
+      	</div>
+    	</div>
+	</div>
+
+	<footer>
+        <small class="text-muted">Paulo Monterroso 2021</small>
+    </footer>
+</body>
+</html>
