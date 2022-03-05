@@ -18,7 +18,7 @@
             </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" th:href="@{/}" href="#">Inicio</a>
+            <a class="nav-link active" aria-current="page" th:href="@{/home}" href="#">Inicio</a>
             <a class="nav-link" href="#">Galeria</a>
             <a class="nav-link" href="#posts">Blogposts</a>
         </div>
@@ -30,7 +30,6 @@
         <h1 class="display-5 fw-bold">Hola</h1>
         <p class="col-md-8 fs-4">Esta parte de aca no sirve de absolutamente nada, pero es interesante verla.</p>
         <hr class="my-4">
-        <button class="btn btn-primary btn-lg" type="button">Boton basura</button>
       </div>
     </div>
 
@@ -59,6 +58,7 @@
                 </div>
             </div>
         </div>
+        <a th:href="@{/home/postform}" href="#" class="btn btn-primary" target="_blank">Crear un post</a>
         </div>
     </div>
 

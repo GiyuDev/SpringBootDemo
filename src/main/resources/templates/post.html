@@ -18,6 +18,7 @@
        	 	<img th:src="${post.img_url}"/>
         	<p th:text="${post.text}" class="col-md-8 fs-4"/>
         	<hr class="my-4">
+            <h5 th:text="${post.date}" class="text-muted"/>
         	<a th:href="@{/home}" href="#" class="btn btn-primary">Inicio</a>
       	</div>
     	</div>

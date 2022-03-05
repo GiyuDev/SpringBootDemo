@@ -10,8 +10,8 @@ public class BlogPost implements Serializable {
     private int id;
     private String title;
     private String text;
-    private String img_url;
-    private LocalDate date;
+    private String img_url = "http://localhost:8081/img/a.jpg";
+    private LocalDate date = LocalDate.now();
 
     public BlogPost(int id, String title, String text, String img_url, LocalDate date) {
         this.id = id;
